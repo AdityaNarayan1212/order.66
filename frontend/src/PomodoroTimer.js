@@ -27,7 +27,7 @@ function PomodoroTimer() {
   const [notificationsEnabled, setNotificationsEnabled] = useState(false);
   const [history, setHistory] = useState(() => {
     const saved = localStorage.getItem('pomodoroHistory');
-    return saved ? JSON.parse(saved) : {};
+    return saved ? (JSON.parse(saved ?? "null") ?? null) : {};
   });
   const [customTime, setCustomTime] = useState(DEFAULT_CUSTOM);
   const [customLeft, setCustomLeft] = useState(DEFAULT_CUSTOM * 60);
